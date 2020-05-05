@@ -108,13 +108,13 @@ class MainWindow(QWidget):
 
 		# 登録ボタンの設定
 		self.btnConv4 = QPushButton(self)
-		self.btnConv4.move(625, 545)
+		self.btnConv4.move(625, 525)
 		self.btnConv4.resize(60, 25)
 		self.btnConv4.setText("登録")
 
 		# 削除ボタンの設定
 		self.btnConv5 = QPushButton(self)
-		self.btnConv5.move(4755, 245)
+		self.btnConv5.move(475, 245)
 		self.btnConv5.resize(60, 25)
 		self.btnConv5.setText("削除")
 		self.btnConv5.setDisabled(True)
@@ -185,14 +185,14 @@ class MainWindow(QWidget):
 			self.label4.setText('<p><font size="3" color="#ff0000">変更できませんでした</font></p>')	#変更できなかったときに警告する
 		self.textbox1.setReadOnly(True)			# Textbox1を非アクティブにする
 		self.textline1.setReadOnly(True)		# Textline1を非アクティブにする
-		self.listbox.setReadOnly(False)			# listboxをアクティブに戻す
-		self.btnConv1.setReadOnly(True)			# 変更ボタンを非アクティブにする
-		self.btnConv2.setReadOnly(True)			# 取消ボタンを非アクティブにする
-		self.btnConv3.setReadOnly(False)		# 編集ボタンをアクティブに戻す
-		self.btnConv4.setReadOnly(False)		# 登録ボタンをアクティブに戻す
-		self.btnConv5.setReadOnly(False)		# 削除ボタンをアクティブに戻す
-		self.btnConv6.setReadOnly(False)		# 挿入ボタンをアクティブに戻す
-		self.btnConv7.setReadOnly(True)			# 参照ボタン2を非アクティブにする
+		self.listbox.setDisabled(False)			# listboxをアクティブに戻す
+		self.btnConv1.setDisabled(True)			# 変更ボタンを非アクティブにする
+		self.btnConv2.setDisabled(True)			# 取消ボタンを非アクティブにする
+		self.btnConv3.setDisabled(False)		# 編集ボタンをアクティブに戻す
+		self.btnConv4.setDisabled(False)		# 登録ボタンをアクティブに戻す
+		self.btnConv5.setDisabled(False)		# 削除ボタンをアクティブに戻す
+		self.btnConv6.setDisabled(False)		# 挿入ボタンをアクティブに戻す
+		self.btnConv7.setDisabled(True)			# 参照ボタン2を非アクティブにする
 		self.listbox.clear()
 		list_title = list_from_db()
 		self.listbox.addItems(list_title)		# listboxを更新
@@ -209,18 +209,18 @@ class MainWindow(QWidget):
 		self.textline1.setText(imgpathbuff)
 		self.textbox1.setReadOnly(True)			# Textbox1を非アクティブにする
 		self.textline1.setReadOnly(True)		# Textline1を非アクティブにする
-		self.listbox.setReadOnly(False)			# listboxをアクティブに戻す
-		self.btnConv1.setReadOnly(True)			# 変更ボタンを非アクティブにする
-		self.btnConv2.setReadOnly(True)			# 取消ボタンを非アクティブにする
-		self.btnConv3.setReadOnly(False)		# 編集ボタンをアクティブに戻す
-		self.btnConv4.setReadOnly(False)		# 登録ボタンをアクティブに戻す
-		self.btnConv5.setReadOnly(False)		# 削除ボタンをアクティブに戻す
-		self.btnConv6.setReadOnly(False)		# 挿入ボタンをアクティブに戻す
-		self.btnConv7.setReadOnly(True)			# 参照ボタン2を非アクティブにする
+		self.listbox.setDisabled(False)			# listboxをアクティブに戻す
+		self.btnConv1.setDisabled(True)			# 変更ボタンを非アクティブにする
+		self.btnConv2.setDisabled(True)			# 取消ボタンを非アクティブにする
+		self.btnConv3.setDisabled(False)		# 編集ボタンをアクティブに戻す
+		self.btnConv4.setDisabled(False)		# 登録ボタンをアクティブに戻す
+		self.btnConv5.setDisabled(False)		# 削除ボタンをアクティブに戻す
+		self.btnConv6.setDisabled(False)		# 挿入ボタンをアクティブに戻す
+		self.btnConv7.setDisabled(True)			# 参照ボタン2を非アクティブにする
 
 	# 編集ボタンを押した時の動作
 	def enableEdit(self):
-		global textbuff:
+		global textbuff
 		global imgpathbuff
 
 		self.label4.clear()
@@ -228,26 +228,94 @@ class MainWindow(QWidget):
 		imgpathbuff = self.textline1.text()		# imgpathbuffに編集前の画像のパスを保存
 		self.textbox1.setReadOnly(False)		# Textbox1をアクティブに戻す
 		self.textline1.setReadOnly(False)		# Textline1をアクティブに戻す
-		self.listbox.setReadOnly(True)			# listboxを非アクティブにする
-		self.btnConv1.setReadOnly(False)		# 変更ボタンをアクティブに戻す
-		self.btnConv2.setReadOnly(False)		# 取消ボタンをアクティブに戻す
-		self.btnConv3.setReadOnly(True)			# 編集ボタンを非アクティブにする
-		self.btnConv4.setReadOnly(True)			# 登録ボタンを非アクティブにする
-		self.btnConv5.setReadOnly(True)			# 削除ボタンを非アクティブにする
-		self.btnConv6.setReadOnly(True)			# 挿入ボタンを非アクティブにする
-		self.btnConv7.setReadOnly(False)		# 参照ボタン2をアクティブに戻す
+		self.listbox.setDisabled(True)			# listboxを非アクティブにする
+		self.btnConv1.setDisabled(False)		# 変更ボタンをアクティブに戻す
+		self.btnConv2.setDisabled(False)		# 取消ボタンをアクティブに戻す
+		self.btnConv3.setDisabled(True)			# 編集ボタンを非アクティブにする
+		self.btnConv4.setDisabled(True)			# 登録ボタンを非アクティブにする
+		self.btnConv5.setDisabled(True)			# 削除ボタンを非アクティブにする
+		self.btnConv6.setDisabled(True)			# 挿入ボタンを非アクティブにする
+		self.btnConv7.setDisabled(False)		# 参照ボタン2をアクティブに戻す
 
+	# 登録ボタンを押した時の動作
+	def doWrite(self):
+		self.label5.clear()						# 警告文を消去
+		text = self.textbox2.toPlainText()		# Textbox2の内容を取得
+		imgpath = self.textline2.text()
+		try:
+			text_write_db(text, imgpath)
+		except sqlite3.Error:
+			self.label5.setText('<p><font size="3" color="#ff0000">登録できませんでした</font></p>')	# 登録できたかったときに警告する
+			pass
+		self.listbox.clear()
+		list_title = list_from_db()
+		self.listbox.addItems(list_title)		# listboxを更新
+		self.label3.setText("ツイート登録数:{0}".format(len(list_title)))
+		self.textbox2.clear()
+		self.textline2.clear()
+		self.btnConv6.setDisabled(True)			# 挿入ボタンを非アクティブにする
 
-	# ボタンをクリック時の動作
-	def showDialog(self):
-		imagefolder = "画像/"
+	# 削除ボタンを押した時の動作
+	def doDelete(self):
+		global textidbuff
+
+		self.label4.clear()						# 警告文を消去
+		qm = QMessageBox(self)					# 削除の確認のためのメッセージボックスを表示
+		ret = qm.question(self, '', "登録ツイートを削除しますか？", qm.Yes | qm.No)
+		if ret == qm.Yes:
+			text_delete_db(textidbuff)
+			self.textbox1.clear()
+			self.textline1.clear()
+			self.textbox1.setReadOnly(True)		# Textbox1を非アクティブにする
+			self.textline1.setReadOnly(True)	# Textline1を非アクティブにする
+			self.listbox.setDisabled(False)		# listboxをアクティブに戻す
+			self.btnConv1.setDisabled(True)		# 変更ボタンを非アクティブにする
+			self.btnConv2.setDisabled(True)		# 取消ボタンを非アクティブにする
+			self.btnConv3.setDisabled(True)		# 編集ボタンを非アクティブにする
+			self.btnConv5.setDisabled(True)		# 削除ボタンを非アクティブにする
+			self.btnConv6.setDisabled(True)		# 挿入ボタンを非アクティブにする
+			self.listbox.clear()
+			list_title = list_from_db()
+			self.listbox.addItems(list_title)	# listboxを更新
+			self.label3.setText("ツイート登録数:{0}".format(len(list_title)))
+
+	# 挿入ボタンを押した時の動作
+	def doInsert(self):
+		global textidbuff
+
+		self.label5.clear()						# 警告文を消去
+		text = self.textbox2.toPlainText()		# Textbox2の内容を取得
+		imgpath = self.textline2.text()
+		try:
+			text_insert_db(textidbuff, text, imgpath)
+		except sqlite3.Error:
+			self.label5.setText('<p><font size="3" color="#ff0000">登録できませんでした</font></p>')	# 登録できたかったときに警告する
+			pass
+		self.listbox.clear()
+		list_title = list_from_db()
+		self.listbox.addItems(list_title)		# listboxを更新
+		self.label3.setText("ツイート登録数:{0}".format(len(list_title)))
+		self.textbox2.clear()
+		self.textline2.clear()
+		self.btnConv6.setDisabled(True)			# 挿入ボタンを非アクティブにする
+
+	# 参照ボタンを押すとファイルダイアログが開く(TextLine1)
+	def showDialog1(self):
 		fname = QFileDialog.getOpenFileName(self, 'Open file', imagefolder)
-
 		#ファイルを選択した時の動作
 		if fname[0]:
 			imgpath = fname[0].split("/")
 			# 相対パスへの変換
-			self.label.setText(imgpath[-3] + "/" + imgpath[-2] + "/" + imgpath[-1])
+			self.textline1.setText(imgpath[-3] + "/" + imgpath[-2] + "/" + imgpath[-1])
+
+	# 参照ボタンを押すとファイルダイアログが開く(TextLine2)
+	def showDialog2(self):
+		fname = QFileDialog.getOpenFileName(self, 'Open file', imagefolder)
+		#ファイルを選択した時の動作
+		if fname[0]:
+			imgpath = fname[0].split("/")
+			# 相対パスへの変換
+			self.textline2.setText(imgpath[-3] + "/" + imgpath[-2] + "/" + imgpath[-1])
 
 # 全角文字を1、半角文字を0.5として文字数をカウントする関数
 def get_east_asian_width_count(text):
@@ -306,6 +374,66 @@ def text_update_db(textid, text, imgpath):
 	except sqlite3.Error:
 		erroralert = True				# エラ〜フラグを立てる
 		pass							# 一旦エラーをパス
+	finally:
+		conn.commit()
+		conn.close()
+	if erroralert: raise sqlite3.Error	# エラーフラグが立っていたら改めてエラーを出す
+
+# テキストをデータベースに登録する
+def text_write_db(text, imgpath):
+	erroralert = False					# エラーフラグ
+	conn = sqlite3.connect(dbname)
+	cur = conn.cursor()
+	imgpath = text2SQL(imgpath)
+	title = text.splitlines()
+	if len(title) == 0: title.append("")
+	title[0] = text2SQL(title[0])
+	text = text2SQL(text)
+	try:
+		cur.execute(u"insert into '{0}'(title, text, image) values({1}, {2}, {3})".format(tablename, title[0], text, imgpath))			# タイトルとテキストと画像のパスを登録。IDは自動的に付加される
+	except sqlite3.Error:
+		erroralert = True				# エラーフラグを立てる
+		pass							# 一旦エラーをパス
+	finally:
+		conn.commit()
+		conn.close()
+	if erroralert: raise sqlite3.Error	# エラーフラグが立っていたら改めてエラーを出す
+
+# 選択したテキストをデータベースから削除する
+def text_delete_db(textid):
+	conn = sqlite3.connect(dbname)
+	cur = conn.cursor()
+	cur.execute(u"delete from '{0}' where id = '{1}'".format(tablename, textid))
+	conn.commit()
+	conn.close()
+
+# テキストをデータベースに挿入する
+def text_insert_db(textid, text, imgpath):
+	erroralert = False					# エラーフラグ
+	conn = sqlite3.connect(dbname)
+	cur = conn.cursor()
+	imgpath = text2SQL(imgpath)
+	title = text.splitlines()
+	if len(title) == 0: title.append("")
+	title[0] = text2SQL(title[0])
+	text = text2SQL(text)
+	try:
+		cur.execute(u"insert into '{0}'(title, text, image) values({1}, {2}, {3})".format(tablename, title[0], text, imgpath))		# insertできるかどうか試す
+	except sqlite3.Error:
+		erroralert = True				# 失敗したらエラーフラグを立てる
+		pass
+	else:
+		cur.execute(u"select max(id) from {0}".format(tablename))		# 最大のIDを取得
+		tupletext = cur.fetchone()
+		maxid = tupletext[0]
+		curid = maxid
+		cur.execute(u"update '{0}' set id = '{1}' where id = '{2}'".format(tablename, curid+1, curid))		# 先にinsertしたテキストのidを1つ増加する
+		while curid > textid:
+			cur.execute(u"select max(id) from {0} where id < '{1}'".format(tablename, curid))
+			tupletext = cur.fetchone()
+			curid = tupletext[0]
+			cur.execute(u"update '{0}' set id = '{1}' where id = '{2}'".format(tablename, curid+1, curid))	# textid以降のid値を+1する
+		cur.execute(u"update '{0}' set id = '{1}' where id = '{2}'".format(tablename, textid, maxid+1))		# 最初にinsertしたテキストのidをtextidに設定する
 	finally:
 		conn.commit()
 		conn.close()
